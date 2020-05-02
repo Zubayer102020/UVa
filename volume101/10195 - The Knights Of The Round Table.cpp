@@ -1,14 +1,25 @@
-#include <stdio.h>
-#include <math.h>
+#include<iostream>
+#include<math.h>
+#include <iomanip>
+#define dd double
+using namespace std;
 
-int main() {
-    double a, b, c;
-    while(scanf("%lf %lf %lf", &a, &b, &c) == 3) {
-        double s = (a+b+c)/2;
-        double area = sqrt(s*(s-a)*(s-b)*(s-c));
-        if(a == 0 || b == 0 || c == 0)
-            area = 0, s = 1;
-        printf("The radius of the round table is: %.3lf\n", area/s);
+int main()
+{
+dd a, b, c, s, n, r;
+
+while(scanf("%lf%lf%lf", &a, &b, &c)==3){
+    if(a==0 || b==0 || c==0){
+        cout << "The radius of the round table is: 0.000" << endl;
     }
-    return 0;
+    else{
+        s = (a+b+c)/2;
+        n = (s-a)*(s-b)*(s-c)/s;
+        r = sqrt(n);
+        cout << "The radius of the round table is: " << std::setprecision(5) << r << endl;
+    }
+    
+}
+    
+return 0;
 }
